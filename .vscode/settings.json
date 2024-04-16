@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // "source.removeUnusedImports": true
+  },
+  "java.compile.nullAnalysis.mode": "automatic",
+  "cSpell.words": ["Btns", "Clist", "Styl", "svgs"],
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json"
+  ]
+}
