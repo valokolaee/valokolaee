@@ -5,44 +5,38 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  View,
-  useColorScheme
+  StyleSheet
 } from 'react-native';
 
-import {
-  Colors
-} from 'react-native/Libraries/NewAppScreen';
+import Ctext from './src/components/atoms/Ctext';
 import COdometerPicker from './src/components/organisms/COdometerPicker';
-import mrvLogs from './src/utilities/mrvLogs';
+import { EnumFontSize } from './src/components/utils/enums/EnumFontSize';
+import styleValues from './src/components/utils/enums/styleValues';
 import ColorSystem from './src/configs/color/ColorSystem';
 
+const number = 5
+const decimals = 3
 
 
 function App(): JSX.Element {
 
+  const [_res, set_res] = useState<string>('0')
 
 
   return (
     <SafeAreaView style={styles.main}>
-      {/* <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      /> */}
 
       <COdometerPicker
-        _bigNum='13.25'
-        numbers={3}
-        decimals={5}
-        set_bigNum={(v) => {
-          mrvLogs(v)
-        }}
+        _bigNum='0'
+        numbers={number}
+        decimals={decimals}
+        set_bigNum={set_res}
       />
 
+      <Ctext text={_res} color={ColorSystem.White} fontSize={EnumFontSize.b0} />
     </SafeAreaView>
   );
 }
@@ -52,6 +46,27 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: ColorSystem.Success
+  },
+  initMainView: {
+    flexDirection: "row",
+    paddingHorizontal: styleValues.p05,
+    alignContent: 'center',
+
+  },
+  initView: {
+    flexDirection: "row"
+  },
+  initInput: {
+    backgroundColor: ColorSystem.White,
+    flex: 1,
+    padding: styleValues.p03,
+
+    borderWidth: 1,
+    borderRadius: styleValues.r20,
+    borderColor: ColorSystem.Border
+
+  },
+  card: {
   }
 
 });
